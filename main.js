@@ -1,5 +1,7 @@
 const puppeteer = require('puppeteer');
 
+const equation = `xy'-y = 5x^2*cos(3x)+x`;
+
 (async () => {
     const browser = await puppeteer.launch({headless: true});
     const page = await browser.newPage();
@@ -11,7 +13,7 @@ const puppeteer = require('puppeteer');
     await page.click('#input-expression');
 
     // escreve a equacao e "pressiona" enter (\n)
-    await page.type('#input-expression', `xy'-y = 5x^2*cos(3x)+x\n`);
+    await page.type('#input-expression', `${equation}\n`);
 
     // espera calcular e desenhar a equacao
     await page.waitForSelector('[class = "load-container hide"]');

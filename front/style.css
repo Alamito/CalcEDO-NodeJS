@@ -33,9 +33,9 @@ body {
 .input-container input {
     width: 40rem;
     height: 3rem;
-    padding: 5px;
-    font-size: 1em;
+    font-size: 1.2em;
     text-align: center;
+    margin: 0 auto;
     border-color: #000;
 }
 
