@@ -11,7 +11,7 @@ const puppeteer = require('puppeteer');
     await page.click('#input-expression');
 
     // escreve a equacao e "pressiona" enter (\n)
-    await page.type('#input-expression', `(x+4*y)*y'=2*x+3*y-5\n`);
+    await page.type('#input-expression', `xy'-y = 5x^2*cos(3x)+x\n`);
 
     // espera calcular e desenhar a equacao
     await page.waitForSelector('[class = "load-container hide"]');
@@ -24,7 +24,7 @@ const puppeteer = require('puppeteer');
     await result.screenshot({ path: "./screenshot/result.png"});
     
     // faz screenshot somente do resultado da EDO
-    await onlyEquationResult.screenshot({path: "./screenshot/onlyEquationResult.png"});
+    await onlyEquationResult.screenshot({path: "./screenshot/onlyResultEquation.png"});
 
     // fecha o chrome
     await browser.close();

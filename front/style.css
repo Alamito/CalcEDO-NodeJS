@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Martel Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.title {
+    font-size: 2rem;
+    /* background-color: red; */
+    margin-top: 25px;
+}
+
+/* .writeEquation {
+     background-color: blue; 
+} */
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.input-container input {
+    width: 40rem;
+    height: 3rem;
+    padding: 5px;
+    font-size: 1em;
+    text-align: center;
+    border-color: #000;
+}
+
+.input-container button {
+    height: 3rem;
+    width: 2rem;
+    background: #fff;
+    color: #000;
+    font-size: 27px;
+    text-align: center;
+}
+
+.input-container button:hover {
+    background-color: rgb(201, 201, 201);
+    border-radius: 15%;
+    transition: 0.2s ease-in;
+}
+
+.input-container button:active {
+    background: rgb(168, 168, 168);
+    transition: 0.1s ease-in;
+}
+
+.result img {
+    padding: 10px;
+    border: 1px red solid;
+}
