@@ -1,8 +1,17 @@
 const puppeteer = require('puppeteer');
+const axios = require('axios');
+const serverURL = "http://127.0.0.1:8080/api";
 
-const equation = `xy'-y = 5x^2*cos(3x)+x`;
+const getEquation = (serverURL) => {
 
-(async () => {
+    const promiseCallback = (resolve, reject) => {
+        return resolve(axios.get(serverURL));
+    }
+
+    return new Promise(promiseCallback);
+}
+
+const doScreenshotResult = async (equation) => {
     const browser = await puppeteer.launch({headless: true});
     const page = await browser.newPage();
 
@@ -31,4 +40,13 @@ const equation = `xy'-y = 5x^2*cos(3x)+x`;
     // fecha o chrome
     await browser.close();
 
-})();
+};
+
+getEquation(serverURL)
+    .then(response => {
+        let equation = response.data.equations.data[0].equation;
+        return equation;
+    })
+    .then(equation => {
+        doScreenshotResult(equation);
+    });
