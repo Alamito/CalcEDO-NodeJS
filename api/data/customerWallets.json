@@ -3,7 +3,8 @@
     "data": [
       {
         "id": "1",
-        "equation": "(2*x^3*y^2-y)*d(x)+(2*x^2*y^3-x)*d(y)=0"
+        "equation": "(2*x^3*y^2-y)*d(x)+(2*x^2*y^3-x)*d(y)=0",
+        "status": "used"
       }
     ]
   }

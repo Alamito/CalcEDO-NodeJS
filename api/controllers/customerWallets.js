@@ -28,6 +28,8 @@ module.exports = app => {
         id: customerId ,
         parentId: req.body.parentId,
         equation: req.body.equation,
+        status: req.body.status,
+        idScreenshot: req.body.idScreenshot,
         // createdAt: new Date() // adiciona data de criação ou atualização
       };
       
