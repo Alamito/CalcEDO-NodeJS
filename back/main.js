@@ -26,7 +26,7 @@ const doScreenshotResult = async (equation) => {
 
     console.log("Viajando ate o site da calculadora");
 
-    // vai ate o site da calculadora de EDO
+    // vai ate o site da calculadora de ED
     await page.goto('https://mathdf.com/dif/pt/');
     
     // seleciona o campo de inserir equacao
@@ -38,9 +38,9 @@ const doScreenshotResult = async (equation) => {
     // espera calcular e desenhar a equacao
     await page.waitForSelector('[class = "load-container hide"]');
 
-    // result recebe o seletor da div onde fica o resultado da EDO
-    const result = await page.$('#math-canvas > div > div:nth-child(2) > div');
-
+    // result recebe o seletor da div onde fica o resultado da ED OU da informacao de que nao eh uma ED
+    const result = await page.$('#math-canvas > div > div:nth-child(2) > div') || await page.$('#math-canvas > div > div > div');
+        
     console.log("Tirando screenshot");
 
     // faz screenshot de result
@@ -64,6 +64,7 @@ const updateStatusAPI = (serverURL, idNewScreenshot) => {
 }
 
 const deletePreviousScreenshot = (idPreviousScreenshot, callback) => {
+    console.log("Excluindo screenshot anterior");
     fs.unlink(`./screenshot/${idPreviousScreenshot}.png`, callback);
 }
 
@@ -82,14 +83,12 @@ function tasksForScreenshotResult(serverURL) {
             return Screenshots;
         })
         .then((Screenshots) => {
-            console.log(Screenshots.previous);
             if (Screenshots.previous != '')
                 deletePreviousScreenshot(Screenshots.previous, function(error) {
-                    if (error) {
+                    if (error) 
                         console.error(error);
-                    } else {
-                        console.log('Successfully deleted previous screenshot');
-                    }
+                    else 
+                        console.log('Imagem deletada com sucesso');
                 })
         });
 }
