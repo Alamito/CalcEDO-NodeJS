@@ -1,4 +1,5 @@
 # 🧮 Calculadora de Equações Diferenciais 🧮
+[![NPM](https://img.shields.io/github/license/Alamito/CalcEDO-NodeJS)](https://github.com/Alamito/CalcEDO-NodeJS/blob/main/LICENCE)
 
 # 📜 Sobre o projeto 📜
 
